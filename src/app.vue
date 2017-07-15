@@ -5,11 +5,6 @@
     </div>
 </template>
 
-<script>
-module.exports = {
-
-};
-</script>
-
 <style lang="stylus">
+@import 'stylesheets/index'
 </style>

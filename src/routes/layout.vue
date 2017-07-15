@@ -56,8 +56,6 @@ module.exports = {
 </script>
 
 <style lang="stylus">
-@import 'stylesheets/index'
-
 .layout
     display flex
     flex-flow column nowrap
