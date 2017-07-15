@@ -9,17 +9,15 @@
                 {{ owner }} / {{ repo }}
             </div>
         </div>
-        <template v-if="loading">
-            Loading commits...
-        </template>
-        <template v-if="error">
-            {{ error }}
-        </template>
+
+        <div class="loading" v-if="loading">Loading commits...</div>
+        <div class="error" v-if="error">{{ error }}</div>
         <div class="commits__list">
             <commit-item v-for="commit of commits"
                          :commit="commit">
             </commit-item>
         </div>
+
     </div>
 </template>
 

@@ -1,14 +1,7 @@
 <template>
     <div class="repos">
-
-        <template v-if="loading">
-            Loading repos...
-        </template>
-
-        <template v-if="error">
-            {{ error }}
-        </template>
-
+        <div class="loading" v-if="loading">Loading repos...</div>
+        <div class="error" v-if="error">{{ error }}</div>
         <div class="repos__list">
             <repo-item v-for="repo of repos"
                        :repo="repo">

@@ -1,24 +1,19 @@
 <template>
     <div class="layout">
-        <template v-if="loading">
-            Loading...
-        </template>
-        <template v-if="error">
-            {{ error }}
-        </template>
-        <template v-if="user">
-            <div class="layout__main">
-                <div class="layout__header">
-                    <h2 class="layout__username">Hey, {{ user.login}}!</h2>
-                    <img class="layout__avatar"
-                         :src="user.avatar_url" />
-                </div>
-                <div class="layout__body">
-                    <router-view :user="user">
-                    </router-view>
-                </div>
+        <div class="loading" v-if="loading">Loading...</div>
+        <div class="error" v-if="error">{{ error }}</div>
+        <div class="layout__main"
+             v-if="user">
+            <div class="layout__header">
+                <h2 class="layout__username">Hey, {{ user.login}}!</h2>
+                <img class="layout__avatar"
+                     :src="user.avatar_url" />
             </div>
-        </template>
+            <div class="layout__body">
+                <router-view :user="user">
+                </router-view>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -74,7 +69,7 @@ module.exports = {
     width 400px
     background #fff
     border-radius 2px
-    box-shadow 0 1px 3px rgba(0,0,0,.25);
+    box-shadow 0 1px 3px rgba(0,0,0,.25)
 
 .layout__header
     display flex
