@@ -1,6 +1,7 @@
 <template>
     <div class="commit-item">
-        <img :src="commit.author.avatar_url"
+        <img v-if="commit.author"
+             :src="commit.author.avatar_url"
              class="commit-item__avatar"/>
         <div class="commit-item__details">
             <div class="commit-item__message">
