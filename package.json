@@ -1,0 +1,42 @@
+{
+  "name": "revue",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "Boris Okunskiy",
+  "license": "MIT",
+  "scripts": {
+    "check": "eslint --ext .js,.vue src/",
+    "dev": "run-p serve watch",
+    "serve": "ws -d static --spa index.html",
+    "watch": "run-p watch:*",
+    "watch:js": "watchify -p browserify-hmr -d -v -e src/index -o static/app.js",
+    "build": "run-s build:js",
+    "build:js": "NODE_ENV=production browserify -g envify -e src/index | uglifyjs -c -m -o public/build/app.min.js"
+  },
+  "browserify": {
+    "transform": [
+      "vueify",
+      "babelify"
+    ]
+  },
+  "dependencies": {
+    "moment": "^2.18.1",
+    "vue": "^2.4.1",
+    "vue-router": "^2.7.0"
+  },
+  "devDependencies": {
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
+    "browserify-hmr": "^0.3.5",
+    "envify": "^4.1.0",
+    "eslint": "^4.2.0",
+    "eslint-config-ub": "^2.0.0",
+    "eslint-plugin-vue": "^2.1.0",
+    "local-web-server": "^2.2.1",
+    "npm-run-all": "^4.0.2",
+    "stylus": "^0.54.5",
+    "uglify-js": "^3.0.24",
+    "vueify": "^9.4.1",
+    "watchify": "^3.9.0"
+  }
+}
